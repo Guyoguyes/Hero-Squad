@@ -88,7 +88,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         //update individual hero
-        get("/hero/:id/edit", (req, res) -> {
+        get("/heroes/:id/edit", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Squad> squads = squadDao.getAll();
             int idOfHeroToEdit = Integer.parseInt(req.params("id"));
@@ -120,7 +120,7 @@ public class App {
         }, new HandlebarsTemplateEngine());
 
         // create squad form
-        get("/squad/new", (req, res) -> {
+        get("/squad-form", (req, res) -> {
             Map<String, Object> model = new HashMap<>();
             List<Squad> squads = squadDao.getAll();
             model.put("squads", squads);
@@ -133,8 +133,8 @@ public class App {
             String name = req.queryParams("name");
             int size = Integer.parseInt(req.queryParams("size"));
             String source = req.queryParams("source");
-            Squad newSquad = new Squad(name, size, source);
-            squadDao.add(newSquad);
+            Squad squad = new Squad(name, size, source);
+            squadDao.add(squad);
             List<Squad> squads = squadDao.getAll();
             model.put("squads",squads);
             return new ModelAndView(model,"squads.hbs");
