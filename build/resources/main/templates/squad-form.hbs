@@ -1,0 +1,29 @@
+{{#partial "content"}}
+    <div class="card">
+        <div class="card-header">
+            <h5>Create a Squad</h5>
+        </div>
+        <div class="card-body">
+            <form action="/squads" method="POST">
+                <div class="form-group">
+                    <label for="name">Squad Name</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="size">Size</label>
+                    <input type="text" class="form-control" id="size"  name="size">
+                </div>
+
+                <div class="form-group">
+                    <label for="source">Source</label>
+                    <input type="text" class="form-control" id="soure" name="source">
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{{/partial}}
