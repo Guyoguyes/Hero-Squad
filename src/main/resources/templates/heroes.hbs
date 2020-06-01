@@ -3,12 +3,12 @@
 
 
     {{#if heroes}}
-
+    <div class="container">
 
                 <div class="col-sm-4 text-center">
 
                             <h1 class="text-center bg-light mt-2">Heroes</h1>
-
+                </div>
                 {{#each heroes}}
                         <div class="card-body">
                             <p class="card-text"> <span>{{name}}</span></p>
@@ -29,5 +29,6 @@
     {{else}}
         <a class="pl-5 text-white" id="fontsize" href="/heroes/new">No Heroes yet! Click to add a Hero</a>
     {{/if}}
+    </div>
 {{/partial}}
 {{>layout.hbs}}
