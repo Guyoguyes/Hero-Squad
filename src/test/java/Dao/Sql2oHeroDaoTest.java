@@ -15,8 +15,8 @@ public class Sql2oHeroDaoTest {
 
     @Before
     public void setUp() throws Exception {
-        String connectionString = "jdbc:h2:mem:testing;INIT=RUNSCRIPT from 'classpath:db/create.sql'";
-        Sql2o sql2o = new Sql2o(connectionString, "", "");
+        String connectionString =  "jdbc:postgresql://localhost:5432/heroSquad_test";
+        Sql2o sql2o = new Sql2o(connectionString, "guyo", "@#scorpion");
         heroDao = new Sql2oHeroDao(sql2o); //ignore me for now
         conn = sql2o.open();
     }
