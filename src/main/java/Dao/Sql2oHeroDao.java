@@ -31,8 +31,8 @@ public class Sql2oHeroDao implements HeroDAo{
                     .executeUpdate()
                     .getKey();
             hero.setId(id);
-        }catch (Sql2oException exception){
-            System.out.println(exception);
+        }catch (Sql2oException ex){
+            System.out.println(ex);
         }
     }
 
@@ -52,8 +52,8 @@ public class Sql2oHeroDao implements HeroDAo{
             con.createQuery(sql)
                     .addParameter("id", id)
                     .executeUpdate();
-        }catch (Sql2oException exception){
-            System.out.println(exception);
+        }catch (Sql2oException ex){
+            System.out.println(ex);
         }
     }
 
@@ -71,8 +71,8 @@ public class Sql2oHeroDao implements HeroDAo{
                     .addParameter("squadId", squadId)
                     .addParameter("id", id)
                     .executeUpdate();
-        }catch(Sql2oException exception){
-            System.out.println(exception);
+        }catch(Sql2oException ex){
+            System.out.println(ex);
         }
 
     }

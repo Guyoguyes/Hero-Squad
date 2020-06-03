@@ -1,0 +1,26 @@
+{{#partial "content"}}
+    <div class="container">
+
+            <p>Squads List</p>
+
+        {{#if squads}}
+            {{#each squads}}
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title">{{name}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">{{source}}</h6>
+                            <p class="card-text">{{size}}</p>
+                            <a href="/squad/{{id}}/edit" class="card-link">Update</a>
+                        <button class="btn btn-danger"><a href="/squad/{{id}}/delete" class="card-link btn-danger">Delete</a></button>
+                        </div>
+                    </div>
+
+                </div>
+            {{/each}}
+        {{else}}
+            <p>Sorry No Squads!!!!</p>
+            <button class="btn btn-primary"><a href="/">Home</a></button>
+        {{/if}}
+
+{{/partial}}
+{{> layout.hbs}}

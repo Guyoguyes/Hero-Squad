@@ -1,0 +1,43 @@
+{{#partial "content"}}
+    <div class="container">
+        <div class="card">
+            <div class="card-header bg-dark">
+                <h5 class="text-center">Post a hero</h5>
+            </div>
+            <div class="card-body bg-light">
+                <div class="formClass">
+                    <form action="/heroes" method="POST" class="form-group form">
+                        <div class="md-form">
+                            <label id="h1-1" for="name">Name</label>
+                            <input id="name" name="name" type="text" class="form-control" required>
+                        </div>
+                        <div class="md-form">
+                            <label id="h1-1" for="age">Age</label>
+                            <input id="age" name="age" type="text" class="form-control" required><br>
+                        </div>
+                        <div class="md-form">
+                            <label id="h1-1" for="specialPower">Power</label>
+                            <input id="specialPower" name="specialPower" type="text" class="form-control" required>
+                        </div>
+                        <div class="md-form">
+                            <label id="h1-1" for="weakness">Weakness</label>
+                            <input id="weakness" name="weakness" type="text" class="form-control" required>
+                        </div>
+
+                        <div class="md-form">
+                            <label for="squadId">Squad</label>
+                            <select class="form-control" name="squadId" id="squadId" required>
+                            {{#each squads}}
+                                <option value="{{id}}">{{name}}</option>
+                            {{/each}}
+                        </select>
+                        </div>
+                        <button type="submit"  class="btn btn-primary mt-4">Add Hero</button>
+                    </form>
+            </div>
+        </div>
+        </div>
+
+    </div>
+{{/partial}}
+{{> layout.hbs}}

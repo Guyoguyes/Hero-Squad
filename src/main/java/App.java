@@ -14,12 +14,34 @@ import static spark.Spark.*;
 
 
 public class App {
+//    static int getHerokuAssignedPort() {
+//        ProcessBuilder processBuilder = new ProcessBuilder();
+//        if (processBuilder.environment().get("PORT") != null) {
+//            return Integer.parseInt(processBuilder.environment().get("PORT"));
+//        }
+//        return 4567; //return default port if heroku-port isn't set (i.e. on localhost)
+//    }
     public static void main(String[] args) {
+        ProcessBuilder process = new ProcessBuilder();
+        Integer port;
+
+        // This tells our app that if Heroku sets a port for us, we need to use that port.
+        // Otherwise, if they do not, continue using port 4567.
+
+        if (process.environment().get("PORT") != null) {
+            port = Integer.parseInt(process.environment().get("PORT"));
+        } else {
+            port = 4567;
+        }
+
+        port(port);
+
+
         staticFileLocation("/public");
 
         staticFileLocation("/public");
-        String connectionString =  "jdbc:postgresql://localhost:5432/herosquad";
-        Sql2o sql2o = new Sql2o(connectionString, "guyo", "@#scorpion");
+        String connectionString =  "jdbc:postgresql://syuacufecjrmrn:5f3c1d44325fba438b5d5c864b5f996ecd9cffe45877a1dfbd3855a199376a59@ec2-52-202-146-43.compute-1.amazonaws.com:5432/df8mqj9fu86b5n";
+        Sql2o sql2o = new Sql2o(connectionString, "syuacufecjrmrn", "5f3c1d44325fba438b5d5c864b5f996ecd9cffe45877a1dfbd3855a199376a59");
         Sql2oHeroDao heroDao = new Sql2oHeroDao(sql2o);
         Sql2oSquadDao squadDao = new Sql2oSquadDao(sql2o);
 
@@ -61,7 +83,7 @@ public class App {
             List<Hero> heroes = heroDao.getAll();
             model.put("heroes", heroes);
             return new ModelAndView(model, "heroes.hbs");
-        });
+        }, new HandlebarsTemplateEngine());
 
         //get individual hero
         get("/heroes/:id", (req, res) ->{
