@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="models.HeroTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2020-05-31T17:26:36" hostname="parrot" time="0.005">
-  <properties/>
-  <testcase name="hero_newHeroObjectCorrectlyCreated_true" classname="models.HeroTest" time="0.004"/>
-  <testcase name="hero_HeroInstantiatesWithInputs_true" classname="models.HeroTest" time="0.0"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
