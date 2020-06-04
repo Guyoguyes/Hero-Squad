@@ -39,7 +39,7 @@ public class App {
 
         staticFileLocation("/public");
 
-        staticFileLocation("/public");
+
         String connectionString =  "jdbc:postgresql://syuacufecjrmrn:5f3c1d44325fba438b5d5c864b5f996ecd9cffe45877a1dfbd3855a199376a59@ec2-52-202-146-43.compute-1.amazonaws.com:5432/df8mqj9fu86b5n";
         Sql2o sql2o = new Sql2o(connectionString, "syuacufecjrmrn", "5f3c1d44325fba438b5d5c864b5f996ecd9cffe45877a1dfbd3855a199376a59");
         Sql2oHeroDao heroDao = new Sql2oHeroDao(sql2o);

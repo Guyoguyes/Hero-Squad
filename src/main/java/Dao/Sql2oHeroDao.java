@@ -9,6 +9,7 @@ import java.util.List;
 
 public class Sql2oHeroDao implements HeroDAo{
     private final Sql2o sql2o;
+    private Connection con;
 
     public Sql2oHeroDao(Sql2o sql2o){
         this.sql2o = sql2o;
